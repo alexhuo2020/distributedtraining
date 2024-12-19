@@ -120,7 +120,7 @@ if __name__ == '__main__':
     model.to(rank)
     shardingstrategy = args.shardingstrategy
     if shardingstrategy == 'full':
-        fsdp_model = FSDP(model, sharding_strategy=ShardingStrategy.SHARD_GRAD_OP) 
+        fsdp_model = FSDP(model, sharding_strategy=ShardingStrategy.FULL_SHARD) 
     elif shardingstrategy == 'no':
         fsdp_model = FSDP(model, sharding_strategy=ShardingStrategy.NO_SHARD) 
     elif shardingstrategy == 'gradop':
