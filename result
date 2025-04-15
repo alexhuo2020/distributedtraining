@@ -1,0 +1,249 @@
+(py_3.10) root@a199c78b59e3:/home/aac# torchrun --nnodes=1 --nproc_per_node=4 untitled.py 
+W1218 20:10:23.854000 140430285719360 torch/distributed/run.py:757] 
+W1218 20:10:23.854000 140430285719360 torch/distributed/run.py:757] *****************************************
+W1218 20:10:23.854000 140430285719360 torch/distributed/run.py:757] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1218 20:10:23.854000 140430285719360 torch/distributed/run.py:757] *****************************************
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+2 get param linear.weight : DTensor(local_tensor=tensor([[-0.6661, -0.1387]], device='cuda:2'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+2 get param linear.bias : DTensor(local_tensor=tensor([-0.6247], device='cuda:2'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+1 get param linear.weight : DTensor(local_tensor=tensor([[-0.3396, -0.1886]], device='cuda:1'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+1 get param linear.bias : DTensor(local_tensor=tensor([0.2838], device='cuda:1'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+0 get param linear.weight : DTensor(local_tensor=tensor([[-0.6661, -0.1387]], device='cuda:0'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+0 get param linear.bias : DTensor(local_tensor=tensor([-0.6247], device='cuda:0'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+3 get param linear.weight : DTensor(local_tensor=tensor([[-0.3396, -0.1886]], device='cuda:3'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+3 get param linear.bias : DTensor(local_tensor=tensor([0.2838], device='cuda:3'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+FSDP model created
+FSDP model created
+dp 1
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+dp 0/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+
+ wordsize 4
+2
+4
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+ wordsize 4
+2
+4
+FSDP model created
+dp 0
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+ wordsize 4
+2
+4
+FSDP model created
+dp 1
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+ wordsize 4
+2
+4
+2 get data X: tensor([[1., 4.],
+        [1., 5.]], device='cuda:2'), y: tensor([[6., 7.],
+        [8., 9.]], device='cuda:2')
+3 get data X: tensor([[1., 2.],
+        [1., 3.]], device='cuda:3'), y: tensor([[2., 3.],
+        [4., 5.]], device='cuda:3')
+1 get data X: tensor([[1., 4.],
+        [1., 5.]], device='cuda:1'), y: tensor([[6., 7.],
+        [8., 9.]], device='cuda:1')
+0 get data X: tensor([[1., 2.],
+        [1., 3.]], device='cuda:0'), y: tensor([[2., 3.],
+        [4., 5.]], device='cuda:0')
+STAGE:2024-12-18 20:10:26 4510:4510 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+STAGE:2024-12-18 20:10:26 4511:4511 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+STAGE:2024-12-18 20:10:26 4508:4508 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+STAGE:2024-12-18 20:10:26 4509:4509 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+X_subset size tensor([[1., 4.],
+        [1., 5.]], device='cuda:2')
+X_subset size tensor([[1., 2.],
+        [1., 3.]], device='cuda:3')
+X_subset size tensor([[1., 2.],
+        [1., 3.]], device='cuda:0')
+X_subset size tensor([[1., 4.],
+        [1., 5.]], device='cuda:1')
+1 get loss 72.084228515625
+3 get loss 17.667205810546875
+2 get loss 90.03755187988281
+0 get loss 27.788707733154297
+3 get grad _fsdp_wrapped_module._flat_param : tensor([-12.4319,   0.0000], device='cuda:3')
+1 get grad _fsdp_wrapped_module._flat_param : tensor([-12.4319, -48.9833], device='cuda:1')
+2 get grad _fsdp_wrapped_module._flat_param : tensor([-14.5527,   0.0000], device='cuda:2')
+0 get grad _fsdp_wrapped_module._flat_param : tensor([-14.5527, -56.2813], device='cuda:0')
+3 optimizer get {'state': {0: {'step': tensor(1.), 'exp_avg': tensor([-1.2432,  0.0000], device='cuda:3'), 'exp_avg_sq': tensor([0.1546, 0.0000], device='cuda:3')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0]}]}
+1 optimizer get {'state': {0: {'step': tensor(1.), 'exp_avg': tensor([-1.2432, -4.8983], device='cuda:1'), 'exp_avg_sq': tensor([0.1546, 2.3994], device='cuda:1')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0]}]}
+STAGE:2024-12-18 20:10:26 4511:4511 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2024-12-18 20:10:26 4509:4509 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2024-12-18 20:10:26 4511:4511 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+STAGE:2024-12-18 20:10:26 4509:4509 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+[rank3]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+[rank1]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+2 optimizer get {'state': {0: {'step': tensor(1.), 'exp_avg': tensor([-1.4553,  0.0000], device='cuda:2'), 'exp_avg_sq': tensor([0.2118, 0.0000], device='cuda:2')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0]}]}
+0 optimizer get {'state': {0: {'step': tensor(1.), 'exp_avg': tensor([-1.4553, -5.6281], device='cuda:0'), 'exp_avg_sq': tensor([0.2118, 3.1676], device='cuda:0')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0]}]}
+Rank 0: Iteration 1/1, Loss: 27.788707733154297
+STAGE:2024-12-18 20:10:26 4510:4510 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2024-12-18 20:10:26 4508:4508 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2024-12-18 20:10:26 4510:4510 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+STAGE:2024-12-18 20:10:26 4508:4508 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+[rank2]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+[rank0]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                     record_param_comms        15.67%      30.384ms        25.19%      48.854ms      12.213ms     238.000us        11.37%       1.040ms     260.000us             4  
+                       FullyShardedDataParallel.forward         0.12%     228.000us        57.75%     111.990ms     111.990ms       0.000us         0.00%       1.037ms       1.037ms             1  
+                  FullyShardedDataParallel._pre_forward         0.31%     592.000us        25.56%      49.573ms      49.573ms       0.000us         0.00%       1.017ms       1.017ms             1  
+                                 c10d::_allgather_base_         0.01%      12.000us        25.14%      48.760ms      48.760ms       0.000us         0.00%       1.008ms       1.008ms             1  
+                                       CopyDeviceToHost         0.00%       0.000us         0.00%       0.000us       0.000us     426.000us        20.35%     426.000us      10.650us            40  
+                                             FillBuffer         0.00%       0.000us         0.00%       0.000us       0.000us     372.000us        17.77%     372.000us       8.087us            46  
+                              aten::_local_scalar_dense         0.05%     103.000us         0.41%     789.000us      19.725us     335.000us        16.01%     357.000us       8.925us            40  
+                                             aten::item         0.05%     103.000us         0.43%     830.000us      20.750us       0.000us         0.00%     332.000us       8.300us            40  
+                                       CopyHostToDevice         0.00%       0.000us         0.00%       0.000us       0.000us     301.000us        14.38%     301.000us       7.341us            41  
+                                    aten::masked_select         0.07%     134.000us         0.33%     649.000us     129.800us      30.000us         1.43%     291.000us      58.200us             5  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 193.934ms
+Self CUDA time total: 2.093ms
+
+(py_3.10) root@a199c78b59e3:/home/aac# torchrun --nnodes=1 --nproc_per_node=4 untitled.py 
+W1218 20:10:47.506000 140221030221632 torch/distributed/run.py:757] 
+W1218 20:10:47.506000 140221030221632 torch/distributed/run.py:757] *****************************************
+W1218 20:10:47.506000 140221030221632 torch/distributed/run.py:757] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1218 20:10:47.506000 140221030221632 torch/distributed/run.py:757] *****************************************
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+dp size 2
+Device Mesh created: device_mesh=DeviceMesh([[0, 1], [2, 3]], mesh_dim_names=('dp', 'tp'))
+1 get param linear.weight : DTensor(local_tensor=tensor([[-0.3396, -0.1886]], device='cuda:1'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+0 get param linear.weight : DTensor(local_tensor=tensor([[-0.6661, -0.1387]], device='cuda:0'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+1 get param linear.bias : DTensor(local_tensor=tensor([0.2838], device='cuda:1'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+0 get param linear.bias : DTensor(local_tensor=tensor([-0.6247], device='cuda:0'), device_mesh=DeviceMesh([0, 1], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+2 get param linear.weight : DTensor(local_tensor=tensor([[-0.6661, -0.1387]], device='cuda:2'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+2 get param linear.bias : DTensor(local_tensor=tensor([-0.6247], device='cuda:2'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+FSDP model created
+dp 0
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+ wordsize 4
+2
+4
+FSDP model created
+dp 0
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+ wordsize 4
+2
+4
+3 get param linear.weight : DTensor(local_tensor=tensor([[-0.3396, -0.1886]], device='cuda:3'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+3 get param linear.bias : DTensor(local_tensor=tensor([0.2838], device='cuda:3'), device_mesh=DeviceMesh([2, 3], mesh_dim_names=('tp',)), placements=(Shard(dim=0),))
+FSDP model created
+dp 1
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+ wordsize 4
+2
+4
+FSDP model created
+dp 1
+/home/aac/untitled.py:250: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = torch.tensor(X_train, dtype=torch.float32)
+/home/aac/untitled.py:251: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y_train = torch.tensor(y_train, dtype=torch.float32)
+ wordsize 4
+2
+4
+0 get data X: tensor([[1., 2.],
+        [1., 3.]], device='cuda:0'), y: tensor([[2., 3.],
+        [4., 5.]], device='cuda:0')
+1 get data X: tensor([[1., 2.],
+        [1., 3.]], device='cuda:1'), y: tensor([[2., 3.],
+        [4., 5.]], device='cuda:1')
+STAGE:2024-12-18 20:10:50 4813:4813 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+STAGE:2024-12-18 20:10:50 4812:4812 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+X_subset size tensor([[1., 2.],
+        [1., 3.]], device='cuda:1')
+X_subset size tensor([[1., 2.],
+        [1., 3.]], device='cuda:0')
+3 get data X: tensor([[1., 4.],
+        [1., 5.]], device='cuda:3'), y: tensor([[6., 7.],
+        [8., 9.]], device='cuda:3')
+2 get data X: tensor([[1., 4.],
+        [1., 5.]], device='cuda:2'), y: tensor([[6., 7.],
+        [8., 9.]], device='cuda:2')
+STAGE:2024-12-18 20:10:50 4815:4815 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+STAGE:2024-12-18 20:10:50 4814:4814 ActivityProfilerController.cpp:314] Completed Stage: Warm Up
+X_subset size tensor([[1., 4.],
+        [1., 5.]], device='cuda:3')
+X_subset size tensor([[1., 4.],
+        [1., 5.]], device='cuda:2')
+3 get loss 72.084228515625
+1 get loss 17.667205810546875
+2 get loss 90.03755187988281
+0 get loss 27.788707733154297
+3 get grad _fsdp_wrapped_module.linear.weight : None
+3 get grad _fsdp_wrapped_module.linear.bias : tensor([-12.4319], device='cuda:3')
+1 get grad _fsdp_wrapped_module.linear.weight : tensor([-12.4319, -48.9833], device='cuda:1')
+1 get grad _fsdp_wrapped_module.linear.bias : None
+2 get grad _fsdp_wrapped_module.linear.weight : None
+0 get grad _fsdp_wrapped_module.linear.weight : tensor([-14.5527, -56.2813], device='cuda:0')
+0 get grad _fsdp_wrapped_module.linear.bias : None
+2 get grad _fsdp_wrapped_module.linear.bias : tensor([-14.5527], device='cuda:2')
+3 optimizer get {'state': {1: {'step': tensor(1.), 'exp_avg': tensor([-1.2432], device='cuda:3'), 'exp_avg_sq': tensor([0.1546], device='cuda:3')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0, 1]}]}
+1 optimizer get {'state': {0: {'step': tensor(1.), 'exp_avg': tensor([-1.2432, -4.8983], device='cuda:1'), 'exp_avg_sq': tensor([0.1546, 2.3994], device='cuda:1')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0, 1]}]}
+STAGE:2024-12-18 20:10:50 4815:4815 ActivityProfilerController.cpp:320] Completed Stage: Collection
+0 optimizer get {'state': {0: {'step': tensor(1.), 'exp_avg': tensor([-1.4553, -5.6281], device='cuda:0'), 'exp_avg_sq': tensor([0.2118, 3.1676], device='cuda:0')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0, 1]}]}
+Rank 0: Iteration 1/1, Loss: 27.788707733154297
+STAGE:2024-12-18 20:10:50 4813:4813 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2024-12-18 20:10:50 4815:4815 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+STAGE:2024-12-18 20:10:50 4812:4812 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2024-12-18 20:10:50 4813:4813 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+[rank3]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+STAGE:2024-12-18 20:10:50 4812:4812 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+[rank1]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+[rank0]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+2 optimizer get {'state': {1: {'step': tensor(1.), 'exp_avg': tensor([-1.4553], device='cuda:2'), 'exp_avg_sq': tensor([0.2118], device='cuda:2')}}, 'param_groups': [{'lr': 0.001, 'betas': (0.9, 0.999), 'eps': 1e-08, 'weight_decay': 0.01, 'amsgrad': False, 'foreach': True, 'maximize': False, 'capturable': False, 'differentiable': False, 'fused': None, 'params': [0, 1]}]}
+STAGE:2024-12-18 20:10:50 4814:4814 ActivityProfilerController.cpp:320] Completed Stage: Collection
+STAGE:2024-12-18 20:10:50 4814:4814 ActivityProfilerController.cpp:324] Completed Stage: Post Processing
+[rank2]:[W collection.cpp:1042] Warning: ROCTracer produced duplicate flow start: 9 (function operator())
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                     record_param_comms        16.48%      31.434ms        27.15%      51.779ms      12.945ms     506.000us        20.37%       1.505ms     376.250us             4  
+                       FullyShardedDataParallel.forward         0.12%     222.000us        60.00%     114.432ms     114.432ms       0.000us         0.00%       1.230ms       1.230ms             1  
+                  FullyShardedDataParallel._pre_forward         0.31%     585.000us        27.52%      52.488ms      52.488ms       0.000us         0.00%       1.200ms       1.200ms             1  
+                                 c10d::_allgather_base_         0.01%      14.000us        27.10%      51.680ms      51.680ms       0.000us         0.00%       1.200ms       1.200ms             1  
+ncclDevKernel_Generic(ncclDevComm*, channelMasks, nc...         0.00%       0.000us         0.00%       0.000us       0.000us     506.000us        20.37%     506.000us     253.000us             2  
+                                             FillBuffer         0.00%       0.000us         0.00%       0.000us       0.000us     467.000us        18.80%     467.000us      10.152us            46  
+                                       CopyDeviceToHost         0.00%       0.000us         0.00%       0.000us       0.000us     438.000us        17.63%     438.000us      10.950us            40  
+                                         aten::isfinite         0.02%      46.000us         0.21%     399.000us      79.800us       0.000us         0.00%     405.000us      81.000us             5  
+                                        hipLaunchKernel        33.85%      64.562ms        33.85%      64.565ms     571.372us     385.000us        15.50%     385.000us       3.407us           113  
+                              aten::_local_scalar_dense         0.05%      99.000us         0.41%     789.000us      19.725us     343.000us        13.81%     371.000us       9.275us            40  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 190.711ms
+Self CUDA time total: 2.484ms

@@ -1,23 +1,3 @@
-# Distributed training 
-
-## The linear regression example
-Let's consider fitting the data 
-$$X = [1,2], [1,3], [1,4], [1,5]$$
-$$y = [2,3], [4,5], [6,7], [8,9]$$
-using linear relation
-$y = A X$, where $A$ is a $2\times 2$ matrix
-$$A = \left(\begin{array}{cc} a_{11} & a_{12} \\ a_{21} & a_{22}\end{array}\right)$$ 
-
-The linear regression problem can be solved using the least square principle, i.e. by minimizing 
-$$\min_{A}\|y- AX\|_{2}^2 = \frac{1}{4}\sum_{i=1}^4 \|y_i - AX_i\|^2$$
-which is the **Mean Squared Error**. 
-
-
-
-
-
-
-
 # Understand distributed training Part 1: linear regression example
 
 Distributed training is very important in training large machine learning models to utilize the amzing computational power of GPU clusters. To understand how this is done, we first use the linear regression as an example to demonstrate how to apply Data Parallelism (DP), Tensor Parallelism (TP) and a combination of them to train the linear regression model.

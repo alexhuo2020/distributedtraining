@@ -11,6 +11,8 @@ from torch.distributed.tensor.parallel import loss_parallel
 
 torch.manual_seed(1234)
 from torch.distributed.tensor.parallel import ColwiseParallel, RowwiseParallel, parallelize_module
+
+
 def setup():
     # initialize the process group
     dist.init_process_group("nccl")
@@ -21,7 +23,7 @@ def cleanup():
 
 
 class LinearLayer(nn.Module):
-    def __init__(self, input_dim, output_dim, bias=True):
+    def __init__(self, input_dim, output_dim, bias=False):
         super().__init__()
         self.input_dim = input_dim
         self.output_dim = output_dim
